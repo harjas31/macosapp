@@ -1,0 +1,9 @@
+requests
+beautifulsoup4
+lxml
+google-auth-oauthlib
+google-auth
+google-api-python-client
+pandas
+openpyxl
+customtkinter
