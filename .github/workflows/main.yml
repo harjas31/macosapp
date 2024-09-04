@@ -32,11 +32,8 @@ jobs:
         cd dist
         zip -r ProductInfoFetcher.app.zip ProductInfoFetcher.app
     
-    - name: Create Release
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      run: |
-        gh release create v${{ github.run_number }} \
-          --title "Release ${{ github.run_number }}" \
-          --notes "Release ${{ github.run_number }} of ProductInfoFetcher" \
-          ./dist/ProductInfoFetcher.app.zip
+    - name: Upload .app file
+      uses: actions/upload-artifact@v2
+      with:
+        name: ProductInfoFetcher
+        path: dist/ProductInfoFetcher.app.zip
